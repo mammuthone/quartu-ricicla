@@ -40,8 +40,8 @@ function DaySelect() {
   }
 
   return (
-    <Box sx={{ minWidth: 120 }}>
-      <FormControl>
+    <Box sx={{ minWidth: 200 }}>
+      <FormControl sx={{ m: 1, minWidth: 200 }}>
         <InputLabel id="demo-simple-select-label">Seleziona il giorno</InputLabel>
         <Select
           labelId="demo-simple-select-label"
@@ -53,7 +53,6 @@ function DaySelect() {
           {menuItems(month)}
         </Select>
       </FormControl>
-      hai selezionato {selectedDay}
     </Box>
   );
 }

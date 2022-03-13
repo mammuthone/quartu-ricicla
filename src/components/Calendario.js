@@ -11,6 +11,9 @@ import DaySelect from './DaySelect/DaySelect';
 
 import { currentMonthCalendar, selectedDate } from '../atom';
 import { useRecoilState } from 'recoil';
+import SectorSelected from './SectorSelected/SectorSelected';
+import RoadSelect from './RoadSelect/RoadSelect';
+
 
 
 const Item = styled(Paper)(({ theme }) => ({
@@ -36,61 +39,36 @@ function Prova2() {
     return (
         <>
             <div>
-                prova { giorno}
+                prova {giorno}
             </div>
         </>
     )
 }
 
-
-
 function Calendario() {
-    const [ dayUserChosen ] = useRecoilState(selectedDate);
-
-
-
+    const [dayUserChosen] = useRecoilState(selectedDate);
     const [giorno, setGiorno] = React.useState('')
     const value = { giorno, setGiorno }
     // console.log(context)
     return (
         <GlobalContext.Provider value={value}>
-            <div>
-                {giorno}
-                <Prova />
-                <Prova2 />
-                <DaySelect />
-            </div>
-            Calendario page {dayUserChosen}
+            {/* <DaySelect />
+            <SectorSelected /> */}
 
+            <Grid container spacing={2}>
+                <Grid item xs={4}>
+                    <DaySelect />
+                </Grid>
+                <Grid item xs={4}>
+                    <SectorSelected />
+                </Grid>
+                <Grid item xs={4}>
+                    <RoadSelect />
+                </Grid>
+            </Grid>
         </GlobalContext.Provider>
 
-        // <Grid container spacing={2}>
-        //     <Grid item xs={8}>
-        //         <FormControl fullWidth>
-        //             <InputLabel id="demo-simple-select-label">Giorno</InputLabel>
-        //             <Select
-        //                 labelId="demo-simple-select-label"
-        //                 id="demo-simple-select"
-        //                 value={age}
-        //                 label="Giorno"
-        //                 onChange={handleChange}
-        //             >
-        //                 <MenuItem value={10}>Ten</MenuItem>
-        //                 <MenuItem value={20}>Twenty</MenuItem>
-        //                 <MenuItem value={30}>Thirty</MenuItem>
-        //             </Select>
-        //         </FormControl>
-        //     </Grid>
-        //     <Grid item xs={4}>
-        //         <Item>xs=4</Item>
-        //     </Grid>
-        //     <Grid item xs={4}>
-        //         <Item>xs=4</Item>
-        //     </Grid>
-        //     <Grid item xs={8}>
-        //         <Item>xs=8</Item>
-        //     </Grid>
-        // </Grid>
+
 
     )
 }
