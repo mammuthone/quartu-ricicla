@@ -48,6 +48,7 @@ function Prova2() {
 function Calendario() {
     const [dayUserChosen] = useRecoilState(selectedDate);
     const [giorno, setGiorno] = React.useState('')
+    const [strada, setStrada] = React.useState('');
     const value = { giorno, setGiorno }
     // console.log(context)
     return (
